@@ -17,7 +17,7 @@ jobs:
       name: pipeline-webapp-backend
       context: backend-fastapi
     secrets:
-      docker_username: ${{ secrets.DOCKER_USERNAME }}
-      docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
+      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
       build_args: |
         PYTHON_VERSION=3.10
