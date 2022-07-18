@@ -1,0 +1,23 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+concurrency:
+  group: ${{ github.ref_name }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    uses: rkhullar/workflows/.github/workflows/build-docker.yaml@feature/dockerhub
+    with:
+      name: pipeline-webapp-backend
+      context: backend-fastapi
+    secrets:
+      docker_username: ${{ secrets.DOCKER_USERNAME }}
+      docker_password: ${{ secrets.DOCKER_PASSWORD }}
+      build_args: |
+        PYTHON_VERSION=3.10
