@@ -1,0 +1,9 @@
+version: '3'
+services:
+  backend:
+    build: .
+    image: backend
+    ports:
+      - "8000:8000"
+    environment:
+      - FASTAPI_URL=${FASTAPI_URL}
