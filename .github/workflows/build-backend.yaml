@@ -12,12 +12,13 @@ concurrency:
 
 jobs:
   build:
-    uses: rkhullar/workflows/.github/workflows/build-docker.yaml@feature/dockerhub
+    uses: rkhullar/workflows/.github/workflows/build-docker-ecr.yaml@main
     with:
       name: pipeline-webapp-backend
       context: backend-fastapi
+      region: us-east-2
     secrets:
-      dockerhub_username: ${{ secrets.DOCKERHUB_USERNAME }}
-      dockerhub_token: ${{ secrets.DOCKERHUB_TOKEN }}
+      ecr_access_key: ${{ secrets.ECR_ACCESS_KEY }}
+      ecr_secret_key: ${{ secrets.ECR_SECRET_KEY }}
       build_args: |
         PYTHON_VERSION=3.10
