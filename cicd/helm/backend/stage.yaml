@@ -1,0 +1,32 @@
+env:
+  SERVICE_PORT: hello-fastapi
+  region: us-east-2
+
+#envSecrets:
+#  AWS_ACCESS_KEY_ID: test-aws
+#  AWS_SECRET_ACCESS_KEY: test-aws
+
+image:
+  repository: REDACTED.dkr.ecr.us-east-2.amazonaws.com/pipeline-webapp-backend
+  pullPolicy: Always
+
+service:
+  targetPort: 8000
+
+resources:
+  requests:
+    cpu: 500m
+    memory: 2Gi
+
+#autoscaling:
+#  minReplicas: 2
+#  maxReplicas: 4
+#  metrics:
+#    - type: Resource
+#      resource:
+#        name: cpu
+#        targetAverageUtilization: 80
+#
+#probes:
+#  enabled: true
+#  path: /heartbeat
