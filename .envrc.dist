@@ -1,0 +1,10 @@
+source_up
+export KUBECONFIG=
+export AWS_ACCOUNT=
+export AWS_REGION=
+export ECR_LOGIN_SECRET_NAME=
+export BACKEND_HOST=
+
+export HELM_ORG=
+export HELM_URL=
+export HELM_CHART=

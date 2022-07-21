@@ -1,13 +1,14 @@
 env:
-  SERVICE_PORT: hello-fastapi
-  region: us-east-2
+  SERVICE_NAME: hello-fastapi
+  AWS_REGION: REDACTED
 
 #envSecrets:
 #  AWS_ACCESS_KEY_ID: test-aws
 #  AWS_SECRET_ACCESS_KEY: test-aws
 
 image:
-  repository: REDACTED.dkr.ecr.us-east-2.amazonaws.com/pipeline-webapp-backend
+  repository: REDACTED.dkr.ecr.REDACTED.amazonaws.com/pipeline-webapp-backend
+  pullSecret: REDACTED
   pullPolicy: Always
 
 service:
@@ -17,6 +18,17 @@ resources:
   requests:
     cpu: 500m
     memory: 2Gi
+
+ingress:
+  enabled: true
+  hosts:
+    - REDACTED
+
+#serviceAccount:
+#  enabled: true
+#  irsa:
+#    accountId: 'REDACTED'
+#    roleName: REDACTED
 
 #autoscaling:
 #  minReplicas: 2
